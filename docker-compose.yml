@@ -1,0 +1,11 @@
+version: '2.3'
+
+services:
+
+  jupyter:
+    build: .
+    init: true
+    ports:
+      - 8888:8888
+    volumes:
+      - ./guides/:/root/guides/

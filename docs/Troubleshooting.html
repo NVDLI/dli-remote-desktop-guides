@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Omniverse Remote Desktop Troubleshooting Guide &#8212; Omniverse Remote Desktop Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Troubleshooting';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Omniverse Remote Desktop Guide" href="Remote_Desktop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Omniverse Remote Desktop Guides
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Remote_Desktop.html">Omniverse Remote Desktop Guide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Omniverse Remote Desktop Troubleshooting Guide</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Troubleshooting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Omniverse Remote Desktop Troubleshooting Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-latest-chrome">Install the Latest Chrome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-issues">Common Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-desktop-is-not-responding-to-my-clicks-it-appears-frozen">The desktop is not responding to my clicks, it appears frozen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-desktop-is-the-wrong-size-for-my-screen">The desktop is the wrong size for my screen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-desktop-is-slow-to-respond-or-laggy">The desktop is slow to respond or laggy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-can-t-copy-paste">I can’t copy/paste</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-alt-or-option-key-is-not-working">My ALT or OPTION key is not working</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="omniverse-remote-desktop-troubleshooting-guide">
+<h1>Omniverse Remote Desktop Troubleshooting Guide<a class="headerlink" href="#omniverse-remote-desktop-troubleshooting-guide" title="Permalink to this headline">#</a></h1>
+<p>This guide presents solutions to common issues you may face while using the Omniverse remote desktop.</p>
+<section id="install-the-latest-chrome">
+<h2>Install the Latest Chrome<a class="headerlink" href="#install-the-latest-chrome" title="Permalink to this headline">#</a></h2>
+<p>As a first step, if you are having any issues, please <a class="reference external" href="https://www.google.com/chrome/">download and use the latest version of Chrome</a>.</p>
+</section>
+<section id="common-issues">
+<h2>Common Issues<a class="headerlink" href="#common-issues" title="Permalink to this headline">#</a></h2>
+<p>This document covers the following issues. Be sure you are using <a class="reference external" href="https://www.google.com/chrome/">the latest version of Chrome</a>.</p>
+<ul class="simple">
+<li><p><span class="xref myst">The desktop is not responding to my clicks, it appears frozen</span>.</p></li>
+<li><p><span class="xref myst">The desktop is the wrong size for my screen</span>.</p></li>
+<li><p><span class="xref myst">The desktop is slow to respond or laggy</span>.</p></li>
+<li><p><span class="xref myst">I can’t copy/paste</span>.</p></li>
+<li><p><span class="xref myst">My ALT or OPTION key is not working</span>.</p></li>
+</ul>
+<p><a id="The-desktop-is-not-responding-to-my-clicks,-it-appears-frozen"></a></p>
+</section>
+<section id="the-desktop-is-not-responding-to-my-clicks-it-appears-frozen">
+<h2>The desktop is not responding to my clicks, it appears frozen<a class="headerlink" href="#the-desktop-is-not-responding-to-my-clicks-it-appears-frozen" title="Permalink to this headline">#</a></h2>
+<p><strong>Fix: refresh the page.</strong> If the remote desktop is not responding to your clicks and/or appears frozen, refresh the browser tab. On occasion you may have to refresh it a second time.</p>
+<p>If, after waiting a minute and then refreshing the browser at least 3 times, you find that your desktop is a black screen that will not do anything else, it is likely you will need to reboot the coding environment. Please get an instructor or TA to assist you.</p>
+<p><a id="The-desktop-is-the-wrong-size-for-my-screen"></a></p>
+</section>
+<section id="the-desktop-is-the-wrong-size-for-my-screen">
+<h2>The desktop is the wrong size for my screen<a class="headerlink" href="#the-desktop-is-the-wrong-size-for-my-screen" title="Permalink to this headline">#</a></h2>
+<p><strong>Fix: set the “Resize remote to fit window” setting to “true”.</strong></p>
+<p>Depending on the size of your browser window, the desktop may not fit well into your browser window. It may be the desktop is too small for your browser window and there is akward black padding, or that it is too big and you cannot see some of the desktop, like the application tray at the bottom.</p>
+<p>To fix this, click the semi-circle on the right-hand side of the remote desktop to open a setting panel. Scroll down the panel and click on the “Resize remote to fit window” option. This will cause the desktop browser tab to refresh. After it reloads it should fit your screen correctly.</p>
+<p><img alt="resize" src="_images/3-resize.png" /></p>
+<p><a id="The-desktop-is-slow-to-respond-or-laggy"></a></p>
+</section>
+<section id="the-desktop-is-slow-to-respond-or-laggy">
+<h2>The desktop is slow to respond or laggy<a class="headerlink" href="#the-desktop-is-slow-to-respond-or-laggy" title="Permalink to this headline">#</a></h2>
+<p><strong>Fix 1: Reduce the Video Bit Rate</strong>. (Be sure to see the other fixes below).</p>
+<p>If you open the side settings panel you can select and reduce the “Video bit rate”. Doing so will reduce the quality of the images in the remote desktop environment, but will be less taxing on your network. You can likely reduce this to a setting where the desktop still looks very nice, but with improved responsiveness.</p>
+<p><img alt="videobitrage" src="_images/videobitrate.png" /></p>
+<p><strong>Fix 2: reduce the size of your application’s viewport</strong>.</p>
+<p>In particular for for Omniverse applications with a lot of graphics intensive work being done, you might find that reducing the size of the viewport where all the rendered objects are presented, greatly improves the overall performance of your remote desktop environment.</p>
+<p><strong>Fix 3: “Fix” the cursor.</strong></p>
+<p>By default, your mouse cursor can move freely in and out of the remote desktop. We have found that performance can be much improved by “fixing the cursor” inside the remote desktop, which can be accomplished by doing <code class="docutils literal notranslate"><span class="pre">CTRL+SHIFT+LEFT</span> <span class="pre">MOUSE</span> <span class="pre">CLICK</span></code> while inside the remote browser. When you do this, you may notice that your cursor changes slightly. You will also see a message indicating that you can press <code class="docutils literal notranslate"><span class="pre">esc</span></code> to unlock the cursor.</p>
+<p>Please note, if you leave the remote desktop environment you will have to “Fix” the cursor again when re-entering it.</p>
+<p><img alt="fix" src="_images/4-fix.png" /></p>
+<p><a id="I-cant-copy-paste"></a></p>
+</section>
+<section id="i-can-t-copy-paste">
+<h2>I can’t copy/paste<a class="headerlink" href="#i-can-t-copy-paste" title="Permalink to this headline">#</a></h2>
+<p>You should be able to copy/paste in between applications in the remote desktop, but not in and out of the desktop from your computer’s larger environment. However, the key-bindings inside the remote desktop may not be what you expect. When you want to copy/paste, try selecting the “Edit” menu of application you are using and use it to copy/paste, or, observe there what the application says the keyboard shortcut is to perform the copy/paste, and use it.</p>
+<p><a id="My-ALT-or-OPTION-key-is-not-working"></a></p>
+</section>
+<section id="my-alt-or-option-key-is-not-working">
+<h2>My ALT or OPTION key is not working<a class="headerlink" href="#my-alt-or-option-key-is-not-working" title="Permalink to this headline">#</a></h2>
+<p><strong>Fix: use the right ALT or OPTION key.</strong></p>
+<p>Unfortunately, you may find that your LEFT ALT or OPTION key does not work as expected. You should be able to use the RIGHT one instead.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Remote_Desktop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Omniverse Remote Desktop Guide</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-latest-chrome">Install the Latest Chrome</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-issues">Common Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-desktop-is-not-responding-to-my-clicks-it-appears-frozen">The desktop is not responding to my clicks, it appears frozen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-desktop-is-the-wrong-size-for-my-screen">The desktop is the wrong size for my screen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-desktop-is-slow-to-respond-or-laggy">The desktop is slow to respond or laggy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-can-t-copy-paste">I can’t copy/paste</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#my-alt-or-option-key-is-not-working">My ALT or OPTION key is not working</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By NVIDIA DLI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
